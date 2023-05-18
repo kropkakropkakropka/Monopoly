@@ -1,0 +1,104 @@
+# depslib dependency file v1.0
+1682371108 source:/home/newton/Desktop/Eurobusiness/bank.cpp
+	"Bank.h"
+	"Gracz.h"
+
+1682422323 /home/newton/Desktop/Eurobusiness/Bank.h
+	<iostream>
+	<string>
+
+1682423475 /home/newton/Desktop/Eurobusiness/Gracz.h
+	<iostream>
+	<string>
+	<vector>
+	"Bank.h"
+
+1681745462 source:/home/newton/Desktop/Eurobusiness/gracz.cpp
+	"Gracz.h"
+
+1682370825 source:/home/newton/Desktop/Eurobusiness/main.cpp
+	<iostream>
+	<ostream>
+	<string.h>
+	"Miasto.h"
+	"Gracz.h"
+	"Bank.h"
+	"Szansa.h"
+	"Koleje.h"
+	"Uslugi.h"
+	"Wiezenie.h"
+	"ParkingDarmowy.h"
+	"Policjant.h"
+	"Start.h"
+	"Strata.h"
+
+1683579393 /home/newton/Desktop/Eurobusiness/Miasto.h
+	<iostream>
+	<string>
+	<vector>
+	"PoleDoKupienia.h"
+
+1681819055 /home/newton/Desktop/Eurobusiness/Szansa.h
+	<iostream>
+	<string>
+	<vector>
+
+1683573135 /home/newton/Desktop/Eurobusiness/Koleje.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+	"Bank.h"
+
+1683573048 /home/newton/Desktop/Eurobusiness/Uslugi.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+	"Bank.h"
+
+1681818952 /home/newton/Desktop/Eurobusiness/Wiezenie.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+
+1681819027 /home/newton/Desktop/Eurobusiness/ParkingDarmowy.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+
+1681818999 /home/newton/Desktop/Eurobusiness/Policjant.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+
+1681819084 /home/newton/Desktop/Eurobusiness/Start.h
+	<iostream>
+	<string>
+	"Gracz.h"
+
+1683558630 /home/newton/Desktop/Eurobusiness/Strata.h
+	<iostream>
+	<string>
+	"Bank.h"
+	"Gracz.h"
+
+1681818634 source:/home/newton/Desktop/Eurobusiness/miasto.cpp
+	"Miasto.h"
+
+1681746271 source:/home/newton/Desktop/Eurobusiness/uslugi.cpp
+
+1683579307 /home/newton/Desktop/Eurobusiness/include/Pole.h
+	<iostream>
+	<string>
+
+1683572178 source:/home/newton/Desktop/Eurobusiness/src/Pole.cpp
+
+1683579364 /home/newton/Desktop/Eurobusiness/include/PoleDoKupienia.h
+	<iostream>
+	<string>
+	"Pole.h"
+
