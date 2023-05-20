@@ -15,7 +15,7 @@ class PoleDoKupienia : public Pole{
         void sprzedaz_nieruchomosci(Bank bankier);
         void pobranie_oplaty_postojowej(Gracz &postojownik, Bank bankier);
 
-        PoleDoKupienia(string naz, int cena, int hip, int oplata, int nr);
+        PoleDoKupienia(int cena, int hip, int oplata);
 
         int get_hipoteka();
         int get_oplata_postojowa();

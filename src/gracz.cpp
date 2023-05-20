@@ -1,5 +1,5 @@
-#include "Gracz.h"
-#include "Bank.h"
+#include "../include/Gracz.h"
+#include "../include/Bank.h"
 
 Gracz::Gracz(string Nnazwa){
     nazwa = Nnazwa;

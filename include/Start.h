@@ -12,7 +12,7 @@ class Start: public Pole{
 public:
     int premia;
 
-    Start(int premia, int nr_pola);
+    Start(string nazwa, int premia, int nr_pola);
     void przyznaj_premie(Gracz &przyznawca);
 };
 #endif

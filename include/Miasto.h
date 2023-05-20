@@ -10,7 +10,7 @@ using namespace std;
 
 class Miasto : public PoleDoKupienia{
     public:
-        Miasto(string kra, string naz, int cena, int koszt_dom, int koszt_hot, int hip, int oplata, int nr, int iloscj_w_kraju);
+        Miasto(string kra, int koszt_dom, int koszt_hot, int iloscj_w_kraju);
 
         void stawianie_budowli(string rodzaj, Bank bankier);
 
@@ -25,6 +25,7 @@ class Miasto : public PoleDoKupienia{
         int iloscj_w_kraju;
         int koszt_domu;
         int koszt_hotelu;
+
         int ilosc_domow;
         int ilosc_hoteli;
 };
