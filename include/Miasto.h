@@ -1,8 +1,5 @@
 #ifndef MIASTO_H
 #define MIASTO_H
-#include <iostream>
-#include <string>
-#include <vector>
 #include "PoleDoKupienia.h"
 
 using namespace std;
@@ -10,10 +7,10 @@ using namespace std;
 
 class Miasto : public PoleDoKupienia{
     public:
-        Miasto(string kra, int koszt_dom, int koszt_hot, int iloscj_w_kraju);
+        Miasto(string kra, int koszt_dom, int koszt_hot, int il_w_kraju, int cena, int hip, int oplata, string naz, int nr);
 
         void stawianie_budowli(string rodzaj, Bank bankier);
-
+        virtual void wykonaj_akcje(int nr_gracz);
         string get_kraj();
         int get_iloscj_w_kraju();
         int get_koszt_domu();
