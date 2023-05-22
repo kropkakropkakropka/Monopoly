@@ -1,16 +1,16 @@
 #ifndef SZANSA_H
 #define SZANSA_H
-#include <iostream>
-#include <string>
-#include <vector>
+#include "Bank.h"
+#include "Gracz.h"
+#include "Pole.h"
+
 using namespace std;
 
-class Szansa{
+class Szansa : public Pole{
 public:
-    vector<string> zawartosc;
-    int nr_pola;
-
-    Szansa(vector<string> zawartosc, int nr_pola);
-    void wylosuj_szanse();
+    virtual void wykonaj_akcje(int nr_gracz);
+    void przyznaj_nagrode(Gracz &nagradzany, Bank &bankier);
+private:
+    int nagroda;
 };
 #endif

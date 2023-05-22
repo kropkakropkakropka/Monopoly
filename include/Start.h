@@ -11,7 +11,6 @@ using namespace std;
 class Start: public Pole{
 public:
     int premia;
-
     Start(string nazwa, int premia, int nr_pola);
     void przyznaj_premie(Gracz &przyznawca);
 };

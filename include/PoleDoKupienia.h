@@ -3,15 +3,13 @@
 #include "Pole.h"
 
 using namespace std;
-class Gracz;
-class Bank;
 
 class PoleDoKupienia : public Pole{
     public:
         void zakup_nieruchomosci(Gracz &kupiec, Bank &bankier);
-        void sprzedaz_nieruchomosci(Bank bankier);
-        void pobranie_oplaty_postojowej(Gracz &postojownik, Bank bankier);
-        virtual void wykonaj_akcje(int nr_gracz);
+        void sprzedaz_nieruchomosci(Bank &bankier);
+        void pobranie_oplaty_postojowej(Gracz &postojownik, Bank &bankier, vector<Gracz*>& gracze);
+        virtual void wykonaj_akcje(Gracz& gracz, Bank& bankier, vector<Gracz*>& gracze);
         PoleDoKupienia(int cena, int hip, int oplata, string naz, int nr);
 
         int get_hipoteka();

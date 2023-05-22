@@ -12,13 +12,14 @@ class Gracz{
 public:
     string nazwa;
 
-    Gracz(string nazwa);
+    Gracz(string naz, int nr_g);
     void rzut_kostka();
     void wykonaj_ruch();
 
     friend void Bank::zabierz_pieniadze(Gracz &Ggracz, int ilosc);
     friend void Bank::daj_pieniadze(Gracz &Ggracz, int ilosc);
 
+    int get_nr_gracza();
     int get_pieniadze();
     int get_pozycja();
     int get_ilosc_oczek();

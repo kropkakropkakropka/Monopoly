@@ -34,23 +34,25 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Bank.h" />
-		<Unit filename="Gracz.h" />
-		<Unit filename="Koleje.h" />
-		<Unit filename="Miasto.h" />
-		<Unit filename="ParkingDarmowy.h" />
-		<Unit filename="Policjant.h" />
-		<Unit filename="Start.h" />
-		<Unit filename="Strata.h" />
-		<Unit filename="Szansa.h" />
-		<Unit filename="Uslugi.h" />
-		<Unit filename="Wiezenie.h" />
-		<Unit filename="bank.cpp" />
+		<Unit filename="include/Bank.h" />
+		<Unit filename="include/Gracz.h" />
+		<Unit filename="include/Koleje.h" />
+		<Unit filename="include/Miasto.h" />
+		<Unit filename="include/ParkingDarmowy.h" />
 		<Unit filename="include/Pole.h" />
 		<Unit filename="include/PoleDoKupienia.h" />
+		<Unit filename="include/Policjant.h" />
+		<Unit filename="include/Start.h" />
+		<Unit filename="include/Strata.h" />
+		<Unit filename="include/Szansa.h" />
+		<Unit filename="include/Uslugi.h" />
+		<Unit filename="include/Wiezenie.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Pole.cpp" />
-		<Unit filename="src/PoleDoKupienia.cpp" />
+		<Unit filename="src/bank.cpp" />
+		<Unit filename="src/gracz.cpp" />
+		<Unit filename="src/miasto.cpp" />
+		<Unit filename="src/pole.cpp" />
+		<Unit filename="src/poleDoKupienia.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

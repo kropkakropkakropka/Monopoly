@@ -1,5 +1,6 @@
 #include "../include/Bank.h"
 #include "../include/Gracz.h"
+
 Bank::Bank(int ilosc_graczy){
     int  pieniadze_w_banku = 30000 - (ilosc_graczy * 3000);
 }

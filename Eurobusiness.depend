@@ -16,21 +16,19 @@
 1681745462 source:/home/newton/Desktop/Eurobusiness/gracz.cpp
 	"Gracz.h"
 
-1682370825 source:/home/newton/Desktop/Eurobusiness/main.cpp
+1684764702 source:/home/newton/Desktop/Eurobusiness/main.cpp
 	<iostream>
-	<ostream>
-	<string.h>
-	"Miasto.h"
-	"Gracz.h"
-	"Bank.h"
-	"Szansa.h"
-	"Koleje.h"
-	"Uslugi.h"
-	"Wiezenie.h"
-	"ParkingDarmowy.h"
-	"Policjant.h"
-	"Start.h"
-	"Strata.h"
+	<vector>
+	"include/Miasto.h"
+	"include/Gracz.h"
+	"include/Bank.h"
+	"include/Pole.h"
+	"include/Szansa.h"
+	"include/Koleje.h"
+	"include/Uslugi.h"
+	"include/ParkingDarmowy.h"
+	"include/Start.h"
+	"include/Strata.h"
 
 1683579393 /home/newton/Desktop/Eurobusiness/Miasto.h
 	<iostream>
@@ -91,14 +89,101 @@
 
 1681746271 source:/home/newton/Desktop/Eurobusiness/uslugi.cpp
 
-1683579307 /home/newton/Desktop/Eurobusiness/include/Pole.h
-	<iostream>
+1684763533 /home/newton/Desktop/Eurobusiness/include/Pole.h
 	<string>
+	"Gracz.h"
+	"Bank.h"
 
 1683572178 source:/home/newton/Desktop/Eurobusiness/src/Pole.cpp
 
-1683579364 /home/newton/Desktop/Eurobusiness/include/PoleDoKupienia.h
+1684763539 /home/newton/Desktop/Eurobusiness/include/PoleDoKupienia.h
+	"Pole.h"
+
+1684680886 source:/home/newton/Desktop/Eurobusiness/src/bank.cpp
+	"../include/Bank.h"
+	"../include/Gracz.h"
+
+1684680878 /home/newton/Desktop/Eurobusiness/include/Bank.h
 	<iostream>
 	<string>
+
+1684749007 /home/newton/Desktop/Eurobusiness/include/Gracz.h
+	<iostream>
+	<string>
+	<vector>
+	"Bank.h"
+
+1684765626 source:/home/newton/Desktop/Eurobusiness/src/gracz.cpp
+	"../include/Gracz.h"
+	"../include/Bank.h"
+	<cstddef>
+	<iostream>
+	<cstdlib>
+	<ctime>
+
+1684763373 source:/home/newton/Desktop/Eurobusiness/src/miasto.cpp
+	"../include/Miasto.h"
+	<iostream>
+
+1684763333 /home/newton/Desktop/Eurobusiness/include/Miasto.h
+	"Bank.h"
+	"Gracz.h"
+	"PoleDoKupienia.h"
+
+1684763596 source:/home/newton/Desktop/Eurobusiness/src/pole.cpp
+	"../include/Pole.h"
+	<iostream>
+
+1684763584 source:/home/newton/Desktop/Eurobusiness/src/poleDoKupienia.cpp
+	"../include/PoleDoKupienia.h"
+	<iostream>
+
+1684762648 /home/newton/Desktop/Eurobusiness/include/Szansa.h
+	"Bank.h"
+	"Gracz.h"
+	"Pole.h"
+
+1684403829 /home/newton/Desktop/Eurobusiness/include/Koleje.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+	"Bank.h"
+
+1683573048 /home/newton/Desktop/Eurobusiness/include/Uslugi.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+	"Bank.h"
+
+1681818952 /home/newton/Desktop/Eurobusiness/include/Wiezenie.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+
+1681819027 /home/newton/Desktop/Eurobusiness/include/ParkingDarmowy.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+
+1683579705 /home/newton/Desktop/Eurobusiness/include/Policjant.h
+	<iostream>
+	<string>
+	<vector>
+	"Gracz.h"
+	"Pole.h"
+
+1684671339 /home/newton/Desktop/Eurobusiness/include/Start.h
+	<iostream>
+	<string>
+	"Gracz.h"
+	"Pole.h"
+
+1684762651 /home/newton/Desktop/Eurobusiness/include/Strata.h
+	"Bank.h"
+	"Gracz.h"
 	"Pole.h"
 
