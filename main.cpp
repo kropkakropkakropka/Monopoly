@@ -5,13 +5,23 @@
 #include "include/Bank.h"
 #include "include/Pole.h"
 #include "include/Szansa.h"
-#include "include/Koleje.h"
-#include "include/Uslugi.h"
-#include "include/ParkingDarmowy.h"
 #include "include/Start.h"
 #include "include/Strata.h"
 
 using namespace std;
+
+void clearConsole()
+{
+    cin.ignore();
+    cout << "Naciśnij klawisz Enter, aby kontynuować...";
+    cin.ignore();
+    #ifdef _WIN32 //na windowsie zeby dzialalo
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
 int main(){
     vector<Pole*> pola;
     vector<Gracz*> gracze;
@@ -41,38 +51,55 @@ int main(){
     Bank bankier(3);
     bool koniecGry = false;
     int aktualny_gracz_index = 0;
+
     while (!koniecGry) {
-        // Pobierz aktualnego gracza
         Gracz* aktualnyGracz = gracze[aktualny_gracz_index];
+        cout<<"Ruch gracza: "<< aktualnyGracz->nazwa<<endl;
+        cout<<aktualnyGracz->nazwa << " posiada " << aktualnyGracz->get_pieniadze()<<" zlotych"<<endl;
 
-        // Wykonaj rzut kostką dla aktualnego gracza
         aktualnyGracz->rzut_kostka();
-
-        // Przesuń gracza na nową pozycję
         aktualnyGracz->wykonaj_ruch();
 
-        // Pobierz pole, na którym znajduje się gracz
+        if(aktualnyGracz->get_nalezy()){
+            bankier.daj_pieniadze(*aktualnyGracz, 400);
+            cout<<"Przyznano premie za przejscie pola start"<<endl;
+            aktualnyGracz->set_nalezy(false);
+        }
+    
         Pole* aktualne_pole = pola[aktualnyGracz->get_pozycja()];
 
-        // Wykonaj akcję związane z polem
-        aktualne_pole->wykonaj_akcje(*aktualnyGracz, bankier);
+        int info = aktualne_pole->informacja(aktualnyGracz->get_nr_gracza());
+        
+        switch (info) {
+            case 1:
+            aktualne_pole->zakup_nieruchomosci(*aktualnyGracz, bankier);
+            break;
+            case 2:
+            aktualne_pole->pobranie_oplaty_postojowej(*aktualnyGracz, bankier, gracze);
+            break;
+            case 3:
+            aktualne_pole->stawianie_budowli("dom", *aktualnyGracz, bankier);
+            break;
+            case 4:
+            aktualne_pole->stawianie_budowli("hotel", *aktualnyGracz, bankier);
+            break;
+            case 5:
+            bankier.daj_pieniadze(*aktualnyGracz, 400);
+            break;
+            case 6:
+            bankier.zabierz_pieniadze(*aktualnyGracz, 400);
+            break;
+            default:
+            break;
+        }
 
-        // Przełącz na następnego gracza
         aktualny_gracz_index++;
-        if (aktualny_gracz_index >= 3) {
+        if (aktualny_gracz_index >= gracze.size()) {
             aktualny_gracz_index = 0;
         }
 
-        // Sprawdź warunek zakończenia gry (np. bankructwo graczy)
-        // Jeśli warunek zakończenia gry jest spełniony, ustaw koniecGry na true
-        // W przeciwnym razie gra kontynuuje się
-
-        // Wyświetl informacje na temat stanu gry, ruchu gracza itp.
-
-        // Zaimplementuj opóźnienie lub zdarzenia, aby umożliwić obserwowanie rozgrywki
+        clearConsole();
     }
-
-    // Wyświetl informację o zakończeniu gry i zwycięzcy
 
     return 0;
 }

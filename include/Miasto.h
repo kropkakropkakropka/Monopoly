@@ -10,8 +10,8 @@ class Miasto : public PoleDoKupienia{
     public:
         Miasto(string kra, int koszt_dom, int koszt_hot, int il_w_kraju, int cena, int hip, int oplata, string naz, int nr);
 
-        void stawianie_budowli(string rodzaj, Gracz& wlasciciel, Bank& bankier);
-        virtual void wykonaj_akcje(Gracz& gracz, Bank& bankier);
+        virtual int informacja(int nr_obecnego);
+        virtual void stawianie_budowli(string rodzaj, Gracz& wlasciciel, Bank& bankier);
         string get_kraj();
         int get_iloscj_w_kraju();
         int get_koszt_domu();

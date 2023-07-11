@@ -24,6 +24,8 @@ public:
     int get_pozycja();
     int get_ilosc_oczek();
     int get_wiezienie();
+    bool get_nalezy();
+    void set_nalezy(bool wartosc); 
 
 private:
     int nr_gracza;
@@ -31,6 +33,7 @@ private:
     int pozycja;
     int ilosc_oczek;
     int wiezienie;
+    bool nalezy_sie_premia;
 };
 
 #endif

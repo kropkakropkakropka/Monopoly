@@ -8,9 +8,8 @@ PoleDoKupienia::PoleDoKupienia(int cena, int hip, int oplata, string naz, int nr
     oplata_postojowa = oplata;
     nr_wlasciciela = -1;
 }
-
-void PoleDoKupienia::wykonaj_akcje(Gracz& gracz, Bank& bankier, vector<Gracz*>& gracze){
-    cout<<"Gracz nr."<<gracz.nazwa<<" znajduje sie na polu "<< nazwa<<endl;
+int PoleDoKupienia::informacja(int nr_obecnego){
+    cout<<"Znajdujesz sie na polu "<< nazwa<<endl;
     if(nr_wlasciciela == -1){
         int wybor;
         cout<<"Czy chcesz kupic "<<nazwa<<", za "<< cena_zakupu <<" zlotych?"<<endl;
@@ -19,14 +18,14 @@ void PoleDoKupienia::wykonaj_akcje(Gracz& gracz, Bank& bankier, vector<Gracz*>& 
             cin>>wybor;
         }while (wybor < 0 || wybor > 1);
         if (wybor) {
-            zakup_nieruchomosci(gracz, bankier);
+            return 1;
         }
-        return;
+        return 0;
     }
-    else if(gracz.get_nr_gracza() != nr_wlasciciela){
-        pobranie_oplaty_postojowej(gracz, bankier, vector<Gracz*>& gracze);
-        return;
+    else if(nr_obecnego != nr_wlasciciela){
+        return 2;
     }
+    return 0;
 }
 
 void PoleDoKupienia::zakup_nieruchomosci(Gracz& kupiec, Bank& bankier) {
@@ -44,16 +43,14 @@ void PoleDoKupienia::zakup_nieruchomosci(Gracz& kupiec, Bank& bankier) {
     }
 }
 
-void PoleDoKupienia::sprzedaz_nieruchomosci(Bank &bankier){
-    Gracz *wlasciciel;;
+void PoleDoKupienia::sprzedaz_nieruchomosci(Gracz& wlasciciel, Bank &bankier){;
     if (nr_wlasciciela != -1) {
 
-        bankier.daj_pieniadze(*wlasciciel, cena_zakupu);
+        bankier.daj_pieniadze(wlasciciel, cena_zakupu);
 
         nr_wlasciciela = -1;
     }
 }
-
 
 void PoleDoKupienia::pobranie_oplaty_postojowej(Gracz& postojownik, Bank& bankier, vector<Gracz*>& gracze) {
     // Sprawdź, czy pole ma właściciela
@@ -75,3 +72,5 @@ void PoleDoKupienia::pobranie_oplaty_postojowej(Gracz& postojownik, Bank& bankie
         }
     }
 }
+
+void PoleDoKupienia::stawianie_budowli(string rodzaj, Gracz &wlasciciel, Bank &bankier){}

@@ -1,15 +1,17 @@
 #ifndef POLEDOKUPIENIA_H
 #define POLEDOKUPIENIA_H
 #include "Pole.h"
-
+#include "Gracz.h"
+#include "Bank.h"
 using namespace std;
 
 class PoleDoKupienia : public Pole{
     public:
-        void zakup_nieruchomosci(Gracz &kupiec, Bank &bankier);
-        void sprzedaz_nieruchomosci(Bank &bankier);
-        void pobranie_oplaty_postojowej(Gracz &postojownik, Bank &bankier, vector<Gracz*>& gracze);
-        virtual void wykonaj_akcje(Gracz& gracz, Bank& bankier, vector<Gracz*>& gracze);
+        virtual int informacja(int nr_obecnego);
+        virtual void zakup_nieruchomosci(Gracz& kupiec, Bank& bankier);
+        virtual void sprzedaz_nieruchomosci(Gracz& wlasciciel, Bank &bankier);
+        virtual void pobranie_oplaty_postojowej(Gracz &postojownik, Bank &bankier, vector<Gracz*>& gracze);
+        virtual void stawianie_budowli(string rodzaj, Gracz& wlasciciel, Bank& bankier);
         PoleDoKupienia(int cena, int hip, int oplata, string naz, int nr);
 
         int get_hipoteka();
