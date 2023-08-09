@@ -10,8 +10,7 @@
 
 using namespace std;
 
-void clearConsole()
-{
+void clearConsole(){
     cin.ignore();
     cout << "Naciśnij klawisz Enter, aby kontynuować...";
     cin.ignore();
@@ -22,10 +21,22 @@ void clearConsole()
     #endif
 }
 
-int main(){
-    vector<Pole*> pola;
-    vector<Gracz*> gracze;
+int f_amount_of_players(){
+    int players;
+    cout<<"Podaj ilosc graczy: ";
+    cin>>players;
+    return players;
+}
 
+// void read_players_names(int amount_of_players, vector<Gracz*>gracze){
+//     string name;
+//     for(int i = 0; i < amount_of_players; i++){
+//         cout<<"Podaj imie gracza nr."<<i+1;
+//         cin>>name;
+
+//     }
+// }
+void init(vector<Pole*> pola, vector<Gracz*>gracze){
     Gracz pierwszy("Kuba", 0);
     Gracz drugi("Pawel", 1);
     Gracz trzeci("Marek", 2);
@@ -48,7 +59,16 @@ int main(){
     pola.push_back(&Siema);
     pola.push_back(&Aha);
 
-    Bank bankier(3);
+    
+}
+
+void game(){
+    vector<Pole*> pola;
+    vector<Gracz*> gracze;
+    int amount_of_players = f_amount_of_players(); 
+    init(pola, gracze);
+    Bank bankier(amount_of_players);
+
     bool koniecGry = false;
     int aktualny_gracz_index = 0;
 
@@ -100,6 +120,9 @@ int main(){
 
         clearConsole();
     }
+}
 
+int main(){
+    game();
     return 0;
 }
