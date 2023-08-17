@@ -12,8 +12,8 @@ Miasto::Miasto(string kra, int koszt_dom, int koszt_hot, int il_w_kraju, int cen
     iloscj_w_kraju = il_w_kraju;
 }
 
-void Miasto::wykonaj_akcje(Gracz& gracz, Bank& bankier){
-    cout<<"Gracz nr."<<gracz.nazwa<<" znajduje sie na polu "<< nazwa<<endl;
+int Miasto::informacja(int nr_obecnego){
+    cout<<"Znajdujesz sie na polu "<< nazwa<<endl;
     if(nr_wlasciciela == -1){
         int wybor;
         cout<<"Czy chcesz kupic "<<nazwa<<", za "<< cena_zakupu <<" zlotych?"<<endl;
@@ -22,29 +22,39 @@ void Miasto::wykonaj_akcje(Gracz& gracz, Bank& bankier){
             cin>>wybor;
         }while (wybor < 0 || wybor > 1);
         if (wybor) {
-            zakup_nieruchomosci(gracz, bankier);
+            return 1;
         }
-        return;
+        return 0;
     }
     else{
-        if(gracz.get_nr_gracza() != nr_wlasciciela){
-            pobranie_oplaty_postojowej(gracz, bankier);
-            return;
+        if(nr_obecnego != nr_wlasciciela){
+            return 2;
         }
         else{
             int wybor;
-            cout<<"Chcesz postawic budowle?"<<endl;
+            if (ilosc_domow == 4) {
+                cout<<"Chcesz postawic hotel?"<<endl;
+                do{
+                    cin>>wybor;
+                }while (wybor < 0 || wybor > 1);    
+                if (wybor) {
+                    return 4;
+                }
+                return 0;
+            }
+            cout<<"Chcesz postawic dom?"<<endl;
             cout<<"1.Tak 0.Nie"<<endl;
             do{
                 cin>>wybor;
             }while (wybor < 0 || wybor > 1);
             if (wybor) {
-                stawianie_budowli("dom", gracz, bankier);
+                return 3;
             }
-            return;
+            return 0;
         }
     }
 }
+
 string Miasto::get_kraj(){
     return kraj;
 }
@@ -59,6 +69,6 @@ void Miasto::stawianie_budowli(string rodzaj, Gracz& wlasciciel, Bank& bankier){
     else if (rodzaj == "hotel" && ilosc_domow == 4) {
         bankier.zabierz_pieniadze(wlasciciel, koszt_hotelu);
         ilosc_hoteli++;
-        ilosc_domow -= 4;
+        ilosc_domow = 0;
     }
 }
