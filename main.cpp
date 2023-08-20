@@ -35,24 +35,29 @@ private:
             gracze.push_back(new Gracz(name, i));
         }
 
-        PoleDoKupienia koleja(350, 30, 35, "Koleja wschodnia", 0);
-        Miasto Londyn("Anglia", 320, 400, 3, 500, 30, 45, "Londyn", 1);
-        Miasto Wieden("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 2);
-        Miasto Test("Anglia", 320, 400, 3, 500, 30, 45, "Test", 3);
-        Miasto Siema("Anglia", 320, 400, 3, 500, 30, 45, "Siema", 4);
-        Miasto Aha("Anglia", 320, 400, 3, 500, 30, 45, "Aha", 5);
+        //In the first approach, where you create instances of PoleDoKupienia and Miasto on the stack, 
+        //you are storing pointers to these objects in the pola vector. 
+        //The problem with this approach is that these objects are local to the init() function, 
+        //and their memory gets deallocated as soon as the function scope ends.
 
-        pola.push_back(&koleja);
-        pola.push_back(&Londyn);
-        pola.push_back(&Wieden);
-        pola.push_back(&Test);
-        pola.push_back(&Siema);
-        pola.push_back(&Aha);
+        //In the second approach, where you create instances of Miasto using the new keyword and store pointers to them in the pola vector, 
+        //the objects are allocated on the heap. 
+        //This means that the objects' memory is not deallocated until you explicitly delete them. 
+    
+        pola.push_back(new Miasto("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 0));
+        pola.push_back(new Miasto("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 1));
+        pola.push_back(new Miasto("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 2));
+        pola.push_back(new Miasto("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 3));
+        pola.push_back(new Miasto("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 4));
+        pola.push_back(new Miasto("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 5));
+        pola.push_back(new Miasto("Anglia", 320, 400, 3, 500, 30, 45, "Wieden", 6));
+
     }
 
     void game() {
         init();
-        Bank bankier(number_of_players);
+        Bank bankier;
+        bankier.set_pieniadze_banku(30000 - (number_of_players * 3000));
 
         bool koniecGry = false;
         int aktualny_gracz_index = 0;
@@ -61,18 +66,18 @@ private:
             Gracz* aktualnyGracz = gracze[aktualny_gracz_index];
             cout << "Ruch gracza: " << aktualnyGracz->nazwa << endl;
             cout << aktualnyGracz->nazwa << " posiada " << aktualnyGracz->get_pieniadze() << " zlotych" << endl;
-
+    
             aktualnyGracz->rzut_kostka();
             aktualnyGracz->wykonaj_ruch();
-
+            
             if (aktualnyGracz->get_nalezy()) {
                 bankier.daj_pieniadze(*aktualnyGracz, 400);
                 cout << "Przyznano premie za przejscie pola start" << endl;
                 aktualnyGracz->set_nalezy(false);
             }
-
+    
             Pole* aktualne_pole = pola[aktualnyGracz->get_pozycja()];
-
+            //cout<<aktualne_pole->nazwa;
             int info = aktualne_pole->informacja(aktualnyGracz->get_nr_gracza());
 
             switch (info) {
@@ -122,7 +127,7 @@ public:
 };
 
 int main() {
-    Game game(5);
+    Game game(3);
     game.start();
     return 0;
 }
