@@ -12,6 +12,7 @@ Gracz::Gracz(string naz, int nr_g){
     wiezienie = 0;
     ilosc_oczek = 0;
     nr_gracza = nr_g;
+    nalezy_sie_premia = false;
 }
 
 void Gracz::rzut_kostka(){

@@ -8,10 +8,10 @@ using namespace std;
 class Gracz;
 class Bank{
 public:
-    Bank(int ilosc_graczy);
     void zabierz_pieniadze(Gracz &Ggracz, int ilosc);
     void daj_pieniadze(Gracz &Ggracz, int ilosc);
-    void get_pieniadze_banku();
+    int get_pieniadze_banku();
+    void set_pieniadze_banku(int pieniadze);
 private:
     int pieniadze_w_banku;
 };
